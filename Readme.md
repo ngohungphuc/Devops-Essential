@@ -55,3 +55,23 @@ and the -f argument specifies the Docker file
 | ENV        | This command defines environment variables that are used to configure containers created from the image.                                                                                                                     |
 | VOLUME     | This command denotes that a Docker volume should be used to provide the contents of a specific directory.                                                                                                                    |
 | ENTRYPOINT | This command specifies the application that will be run in containers created from the image.                                                                                                                                |
+
+##
+
+Containers are created using the docker create command, like this:
+
+```
+docker create -p 3000:80 --name exampleApp3000 apress/exampleapp
+```
+
+Once a container has been created, it can be started using the docker start command.
+
+```
+docker start exampleApp3000
+```
+
+You can create and start a container in a single step using the docker run command.
+
+```
+docker run -p 3000:80 --name exampleApp4000 apress/exampleapp
+```
