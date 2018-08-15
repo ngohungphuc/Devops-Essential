@@ -75,3 +75,15 @@ You can create and start a container in a single step using the docker run comma
 ```
 docker run -p 3000:80 --name exampleApp4000 apress/exampleapp
 ```
+
+##
+## Essential Arguments for the docker create and docker run Commands
+
+| Argument      | Description                                                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| -e, --env     | This argument sets an environment variable                                                                                 |
+| --name        | This argument assigns a name to the container.                                                                             |
+| --network     | This argument connects a container to a software-defined network.                                                          |
+| -p, --publish | This argument maps a host operating system port to one inside the container.                                               |
+| --rm          | This argument tells Docker to remove the container when it stops.                                                          |
+| -v, --volume  | This argument is used to configure a volume that will provide the contents for a directory in the container’s file system. |
