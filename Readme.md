@@ -1,6 +1,6 @@
 ![logo](img/docker.png)
 
-Essential Docker for ASP.Net Core MVC
+Essential Docker for .Net Developer
 
 ### Command
 
@@ -29,6 +29,7 @@ on which the commands in the Docker file are performed. The -t argument specifie
 and the -f argument specifies the Docker file
 
 ##
+
 ## Essential Commands for Working with Images
 
 | Command       | Description                                                                                                                                                                           |
@@ -39,3 +40,18 @@ and the -f argument specifies the Docker file
 | docker push   | This command publishes an image to a repository. You may have to authenticate with the repository using the docker login command.                                                     |
 | docker tag    | This command is used to associate a name with an image.                                                                                                                               |
 | docker rmi    | This command removes images from the local system. The -f argument can be used to remove images for which containers exist.                                                           |
+
+##
+
+## The Essential Docker File Commands
+
+| Command    | Description                                                                                                                                                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FROM       | This command specifies the base image. For ASP.NET Core MVC projects, this command is generally used to select the microsoft/aspnetcore:1.1.1 (for deployment) or microsoft/aspnetcore-build:1.1.1 (for development) images. |
+| WORKDIR    | This command changes the working directory for subsequent commands in the Docker file.                                                                                                                                       |
+| COPY       | This command adds files so they will become part of the file system of containers that are created from the image.                                                                                                           |
+| RUN        | This command executes a command as the Docker file is processed. It is commonly used to download additional files to include in the image or to run commands that configure the existing files.                              |
+| EXPOSE     | This command exposes a port so that containers created from the image can receive network requests.                                                                                                                          |
+| ENV        | This command defines environment variables that are used to configure containers created from the image.                                                                                                                     |
+| VOLUME     | This command denotes that a Docker volume should be used to provide the contents of a specific directory.                                                                                                                    |
+| ENTRYPOINT | This command specifies the application that will be run in containers created from the image.                                                                                                                                |
