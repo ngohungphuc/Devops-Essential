@@ -29,6 +29,7 @@ on which the commands in the Docker file are performed. The -t argument specifie
 and the -f argument specifies the Docker file
 
 ##
+## Essential Commands for Working with Images
 
 | Command       | Description                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
