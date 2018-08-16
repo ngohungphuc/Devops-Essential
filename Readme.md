@@ -138,3 +138,26 @@ deleted, allowing the result of user actions to be stored persistently.
 | docker volume create | This command creates a new volume.                                                                                                                                                    |
 | docker volume ls     | This command lists the volumes that have been created. The -q argument returns a list of unique IDs, which can be used to delete multiple volumes using the docker volume rm command. |
 | docker volume rm     | This command removes one or more volumes.                                                                                                                                             |
+
+## 
+Software-defined networks are used to connect containers together, using networks that are created and managed using Docker
+
+Software-defined networks are created using the docker network create command, like this:
+```
+docker network create backend
+```
+
+This command creates a software-defined network called backend. Containers can be connected to the
+network using the --network argument to the docker create or docker start command, like this:
+```
+docker run -d --name mysql -v productdata:/var/lib/mysql --network=backend -e
+MYSQL_ROOT_PASSWORD=mysecret -e bind-address=0.0.0.0 mysql:8.0.0
+```
+
+Containers can also be connected to software-defined networks using the docker network connect
+command, like this:
+```
+docker network connect frontend productapp1
+```
+This command connects the container called productapp1 to the software-defined network called
+frontend.
