@@ -80,13 +80,13 @@ docker run -p 3000:80 --name exampleApp4000 apress/exampleapp
 
 ## Essential Arguments for the docker create and docker run Commands
 
-| Argument      | Description                                                                                                                |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| -e, --env     | This argument sets an environment variable                                                                                 |
-| --name        | This argument assigns a name to the container.                                                                             |
-| --network     | This argument connects a container to a software-defined network.                                                          |
-| -p, --publish | This argument maps a host operating system port to one inside the container.                                               |
-| --rm          | This argument tells Docker to remove the container when it stops.                                                          |
+| Argument      | Description                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| -e, --env     | This argument sets an environment variable                                                                                  |
+| --name        | This argument assigns a name to the container.                                                                              |
+| --network     | This argument connects a container to a software-defined network.                                                           |
+| -p, --publish | This argument maps a host operating system port to one inside the container.                                                |
+| --rm          | This argument tells Docker to remove the container when it stops.                                                           |
 | -v, --volume  | This argument is used to configure a volume that will provide the contents for a directory in the container’s file system. |
 
 ##
@@ -130,3 +130,11 @@ This command tells Docker that the productdata volume will be used to provide
 the contents of the /var/lib/mysql directory in the container’s file system. Removing the container won’t
 remove the volume, which means that any files that are created in the /var/lib/mysql directory won’t be
 deleted, allowing the result of user actions to be stored persistently.
+
+## Essential Commands for Working with Volumes
+
+| Command              | Description                                                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| docker volume create | This command creates a new volume.                                                                                                                                                    |
+| docker volume ls     | This command lists the volumes that have been created. The -q argument returns a list of unique IDs, which can be used to delete multiple volumes using the docker volume rm command. |
+| docker volume rm     | This command removes one or more volumes.                                                                                                                                             |
