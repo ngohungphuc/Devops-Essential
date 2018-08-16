@@ -161,3 +161,12 @@ docker network connect frontend productapp1
 ```
 This command connects the container called productapp1 to the software-defined network called
 frontend.
+
+## Essential Commands for Working with Software-Defined Networks
+
+| Command                | Description                                                                                                                                                                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| docker network create  | This command creates a new software-defined network.                                                                                                                                                                                                         |
+| docker network connect | This command connects a container to a software-defined network.                                                                                                                                                                                             |
+| docker network ls      | This command lists the software-defined networks that have been created, including the ones that Docker uses automatically. The -q argument returns a list of unique IDs, which can be used to delete multiple networks using the docker network rm command. |
+| docker network rm      | This command removes a software-defined network. There are some built-in networks that Docker creates and that cannot be removed.                                                                                                                            |
