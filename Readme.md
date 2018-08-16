@@ -170,3 +170,20 @@ frontend.
 | docker network connect | This command connects a container to a software-defined network.                                                                                                                                                                                             |
 | docker network ls      | This command lists the software-defined networks that have been created, including the ones that Docker uses automatically. The -q argument returns a list of unique IDs, which can be used to delete multiple networks using the docker network rm command. |
 | docker network rm      | This command removes a software-defined network. There are some built-in networks that Docker creates and that cannot be removed.                                                                                                                            |
+
+## Docker Compose
+Docker Compose is used to describe complex applications that require multiple containers, volumes,
+and software-defined networks.
+
+| Keyword     | Description                                                                                                                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| version     | This keyword specifies the version of the compose file schema. At the time of writing the latest version is version 3.                                                                                                          |
+| volume      | This keyword is used to list the volumes that are used by the containers defined in the compose file.                                                                                                                           |
+| networks    | This keyword is used to list the volumes that are used by the containers defined in the compose file. The same keyword is used to list the networks that individual containers will be connected to.                            |
+| services    | This keyword is used to denote the section of the compose file that describes containers.                                                                                                                                       |
+| image       | This keyword is used to specify the image that should be used to create a container.                                                                                                                                            |
+| build       | This keyword is used to denote the section that specifies how the image for a container will be created.                                                                                                                        |
+| context     | This keyword specifies the context directory that will be used when building the image for a container.                                                                                                                         |
+| dockerfile  | This keyword specifies the Docker file that will be used when building the image for a container.                                                                                                                               |
+| environment | This keyword is used to define an environment variable that will be applied to a container.                                                                                                                                     |
+| depends_on  | This keyword is used to specify dependencies between services. Docker doesn’t have insight into when applications in containers are ready, so additional steps must be taken to control the startup sequence of an application |
