@@ -98,3 +98,18 @@ the context, which is the location that is used for commands such as COPY in the
 tags the new image as apress/exampleapp, and the -f argument specifies the Docker file that contains
 the instructions for creating the image. (The convention for naming images is to use your name or your
 organization’s name, followed by the application name.)
+
+### Creating Containers
+
+```
+docker create -p 3000:80 --name exampleApp3000 apress/exampleapp
+```
+
+- The docker create command is used to create a new image.
+- The -p argument to the docker create command tells Docker how to map port 80 inside the container
+  to the host operating system
+- The --name argument assigns a name to the container, which makes it easier to work with once it
+  has been created. The name in this case is exampleApp3000, indicating that this container will respond to
+  requests sent to port 3000 in the host operating system.
+- The final argument tells Docker which image to use as the template for the new container. This
+  command specifies the apress/exampleapp image
