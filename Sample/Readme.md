@@ -156,3 +156,22 @@ docker logs exampleApp3000
 docker start exampleApp3000
 docker logs -f exampleApp3000
 ```
+
+### Creating and Starting Containers with a Single Command
+
+The docker run command is used to create a container from an image and start it in a single step,
+combining the effects of the docker create and docker start commands
+
+```
+docker run -p 5000:80 --name exampleApp5000 apress/exampleapp
+```
+
+### REMOVING CONTAINERS AUTOMATICALLY
+
+The docker run command can be used with the --rm argument, which tells Docker to remove the
+container when it stops. Run this command to create a container that maps port 6500 in the host
+container to port 80 in the new container
+
+```
+docker run -p 6500:80 --rm --name exampleApp6500 apress/exampleapp
+```
