@@ -128,3 +128,18 @@ docker start $(docker ps -aq)
 
 The command combines docker start with the output of the docker ps command. The -a argument
 includes containers that are not running, and the -q argument returns just the container IDs.
+
+### Stopping Containers
+
+Containers are stopped using the docker stop command, which can stop one or more containers by name
+or by ID.
+
+```
+docker stop exampleApp3000
+```
+
+### Stopping All Containers
+
+```
+docker stop $(docker ps -q)
+```
