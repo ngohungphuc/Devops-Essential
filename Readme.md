@@ -187,3 +187,25 @@ and software-defined networks.
 | dockerfile  | This keyword specifies the Docker file that will be used when building the image for a container.                                                                                                                               |
 | environment | This keyword is used to define an environment variable that will be applied to a container.                                                                                                                                     |
 | depends_on  | This keyword is used to specify dependencies between services. Docker doesn’t have insight into when applications in containers are ready, so additional steps must be taken to control the startup sequence of an application |
+
+## 
+Docker files are processed using the docker-compose build command like this:
+```
+docker-compose -f docker-compose.yml build
+```
+
+The containers, networks, and volumes in a compose file are created and starting using the
+docker-compose up command.
+```
+docker-compose up
+```
+
+## Essential Commands for Docker Compose
+| Command              | Description                                                                                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| docker-compose build | This command processes the contents of the compose file and creates the images required for the services it contains.                                                  |
+| docker-compose up    | This command creates the containers, networks, and volumes defined in the compose file and starts the containers.                                                      |
+| docker-compose stop  | This command stops the containers created from the services in the compose file. The containers, networks, and volumes are left in place so they can be started again. |
+| docker-compose down  | This command stops the containers created from the services in the compose file and removes them, along with the networks and volumes.                                 |
+| docker-compose scale | This command changes the number of containers that are running for a service.                                                                                          |
+| docker-compose ps    | This command lists the containers that have been created for the services defined in the compose file.                                                                 |
