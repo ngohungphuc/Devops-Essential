@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  sample:
+    image: ${DOCKER_REGISTRY}sample
+    build:
+      context: .
+      dockerfile: Sample\Dockerfile

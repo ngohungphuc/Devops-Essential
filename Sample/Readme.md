@@ -113,3 +113,18 @@ docker create -p 3000:80 --name exampleApp3000 apress/exampleapp
   requests sent to port 3000 in the host operating system.
 - The final argument tells Docker which image to use as the template for the new container. This
   command specifies the apress/exampleapp image
+
+### Starting Containers
+
+```
+docker start exampleApp3000
+```
+
+### Starting All Containers
+
+```
+docker start $(docker ps -aq)
+```
+
+The command combines docker start with the output of the docker ps command. The -a argument
+includes containers that are not running, and the -q argument returns just the container IDs.
