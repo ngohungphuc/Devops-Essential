@@ -235,3 +235,7 @@ docker swarm init
 | docker service rm     | This command removes a service from the swarm.                                         |
 | docker stack deploy   | This command deploys an application described in a compose file to the swarm.          |
 | docker stack rm       | This command removes the services described in a compose file from the swarm.          |
+
+## The path from image to container to service
+
+<img src="img/The path from image to container to service.png">
