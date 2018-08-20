@@ -86,3 +86,15 @@ the application’s files.
 ```
 dotnet publish --framework netcoreapp1.1 --configuration Release --output dist
 ```
+
+### Creating a Custom Image
+
+```
+docker build . -t apress/exampleapp -f Dockerfile
+```
+
+The docker build command creates a new image. The period that follows the build keyword provides
+the context, which is the location that is used for commands such as COPY in the Docker file. The -t argument
+tags the new image as apress/exampleapp, and the -f argument specifies the Docker file that contains
+the instructions for creating the image. (The convention for naming images is to use your name or your
+organization’s name, followed by the application name.)
