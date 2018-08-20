@@ -209,3 +209,29 @@ docker-compose up
 | docker-compose down  | This command stops the containers created from the services in the compose file and removes them, along with the networks and volumes.                                 |
 | docker-compose scale | This command changes the number of containers that are running for a service.                                                                                          |
 | docker-compose ps    | This command lists the containers that have been created for the services defined in the compose file.                                                                 |
+## Docker Swarm Quick Reference
+A Docker swarm is a cluster of servers that run containers. There are worker nodes that run the containers
+and manager nodes that determine which containers run on individual nodes and ensure that the right
+number of containers are running for each service. Swarms automatically try to recover when containers or
+nodes fail.
+
+A swarm is created by running the following command on a manager node:
+```
+docker swarm init
+```
+
+## Essential Commands for Docker Swarms
+| Command               | Description                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| docker swarm init     | This command runs on manager nodes to create a swarm.                                  |
+| docker swarm join     | This command runs on worker nodes to join a swarm.                                     |
+| docker node ls        | This command displays a list of the nodes in the swarm.                                |
+| docker node update    | This command changes the configuration of a node in the swarm.                         |
+| docker service create | This command manually starts a new service on the swarm.                               |
+| docker service update | This command changes the configuration of a service running on the swarm.              |
+| docker service scale  | This command changes the number of containers that are running for a specific service. |
+| docker service ls     | This command lists the services that are running on the swarm.                         |
+| docker service ps     | This command lists the containers that are running for a specific service.             |
+| docker service rm     | This command removes a service from the swarm.                                         |
+| docker stack deploy   | This command deploys an application described in a compose file to the swarm.          |
+| docker stack rm       | This command removes the services described in a compose file from the swarm.          |
