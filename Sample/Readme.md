@@ -143,3 +143,16 @@ docker stop exampleApp3000
 ```
 docker stop $(docker ps -q)
 ```
+
+### Getting Container Output
+
+```
+docker logs exampleApp3000
+```
+
+### Following a Container’s Logs
+
+```
+docker start exampleApp3000
+docker logs -f exampleApp3000
+```
