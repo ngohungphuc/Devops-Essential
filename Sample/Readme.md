@@ -95,3 +95,12 @@ The docker cp command is used to copy files in and out of containers. This comma
 modified Index.cshtml file from the project folder in the host operating system into the /app/Views folder
 in the exampleApp3000 folder, which is the folder from which the MVC application inside the container gets
 its views.
+
+#### Examining Changes to a Container
+
+```
+docker diff exampleApp3000
+```
+
+The docker diff command shows the differences between the files in the container and the image that
+was used to create it
