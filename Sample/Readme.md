@@ -104,3 +104,12 @@ docker diff exampleApp3000
 
 The docker diff command shows the differences between the files in the container and the image that
 was used to create it
+
+#### Executing Commands in Containers
+
+```
+docker exec exampleApp3000 cat /app/Views/Home/Index.cshtml
+```
+
+The docker exec command is used to execute commands inside the container. The name of the
+container is followed by the command and any arguments that it requires
