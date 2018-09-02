@@ -113,3 +113,12 @@ docker exec exampleApp3000 cat /app/Views/Home/Index.cshtml
 
 The docker exec command is used to execute commands inside the container. The name of the
 container is followed by the command and any arguments that it requires
+
+#### Starting a Shell in a Container
+
+```
+docker exec -it exampleApp3000 /bin/bash
+```
+
+The -it argument to the docker exec command tells Docker that this is an interactive command
+that requires terminal support.
