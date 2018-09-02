@@ -87,3 +87,11 @@ the application’s files.
 dotnet publish --framework netcoreapp1.1 --configuration Release --output dist
 ```
 
+```
+docker cp ./Views/Home/Index.cshtml exampleApp3000:/app/Views/Home/
+```
+
+The docker cp command is used to copy files in and out of containers. This command copies the
+modified Index.cshtml file from the project folder in the host operating system into the /app/Views folder
+in the exampleApp3000 folder, which is the folder from which the MVC application inside the container gets
+its views.
