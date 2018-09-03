@@ -178,3 +178,16 @@ docker run --name vtest2 -v testdata:/data apress/vtest
 ```
 The -v argument tells Docker that any data the container creates in the /data directory should be
 stored in the testdata volume.
+
+#### Determining Whether an Image Uses Volumes
+There are two ways to check to see whether a Docker image relies on volumes. The first—and most
+obvious—is to look at the Docker file that was used to create the image. Many publicly available images on
+Docker include a link to a GitHub repository, where you can easily inspect the Docker file and see whether it
+contains any VOLUME commands.
+
+```
+docker inspect apress/vtest
+```
+The response from the docker inspect command is a JSON description of the image, which includes
+information about the volumes that are used. For the example image, the response from the docker inspect
+command will include the following:
