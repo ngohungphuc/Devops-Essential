@@ -122,3 +122,14 @@ docker exec -it exampleApp3000 /bin/bash
 
 The -it argument to the docker exec command tells Docker that this is an interactive command
 that requires terminal support.
+
+#### Putting Docker Volumes and Software-Defined Networks in Context
+
+| Plugin                      | README                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| What are they?              | Volumes allow important data to exist outside of the container, which means you can replace a container without losing the data that it created. Software-defined networks are Internet Protocol networks created by Docker that allow the applications in containers to communicate.                                                                |
+| Why are they useful?        | Volumes make it possible to delete a container without also deleting the data it contains, which allows containers to be changed or upgraded without losing user data. Software-defined networks make it possible to create more complex applications that span multiple containers, making it easier to introduce common components like databases. |
+| How are they used?          | These features are managed through the docker volume and docker network commands. Volumes and software-defined networks must be prepared before the containers that use them are created.                                                                                                                                                            |
+| Are there any pitfalls or   |
+| limitations?                | Working out which volumes are required by base images can be a difficult process. Software-defined networks only connect containers on a single server unless a Docker cluster is used                                                                                                                                                               |
+| Are there any alternatives? | There are no alternatives to these features, but you require them for every project. Volumes are not required if a containerized application doesn’t generate data that you need to save when the container is removed. Software-defined networks are not required if your containers do not need to communicate.                                   |
