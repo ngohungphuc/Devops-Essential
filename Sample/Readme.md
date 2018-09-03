@@ -133,3 +133,48 @@ that requires terminal support.
 | Are there any pitfalls or   |
 | limitations?                | Working out which volumes are required by base images can be a difficult process. Software-defined networks only connect containers on a single server unless a Docker cluster is used                                                                                                                                                               |
 | Are there any alternatives? | There are no alternatives to these features, but you require them for every project. Volumes are not required if a containerized application doesn’t generate data that you need to save when the container is removed. Software-defined networks are not required if your containers do not need to communicate.                                   |
+
+
+#### Managing Data with a Docker Volume
+Docker volumes solve the data file problem by keeping data files outside the container while still making
+them accessible to the application that runs inside it.
+
+Step 1: Updating the Docker File
+```
+VOLUME /data
+WORKDIR /data
+ENTRYPOINT (test -e message.txt && echo "File Exists" \
+|| (echo "Creating File..." \
+&& echo Hello, Docker $(date '+%X') > message.txt)) && cat message.txt
+```
+
+The VOLUME command tells Docker that any files stored in /data should be stored in a volume, putting
+them outside the regular container file system. The important point to note is that the application running
+in the container won’t know that the files in the /data directory are special: they will be read and written just
+like any other file in the container’s file system.
+
+Updating the Image to Use a Volume
+```
+docker build . -t apress/vtest -f Dockerfile.volumes
+```
+
+Step 2: Creating the Volume
+
+The second step is to create the volume that will hold the data files.
+
+Creating a Volume
+```
+docker volume create --name testdata
+```
+The docker volume create command is used to create a new volume and assign it a name, which
+is testdata in this case. The volume is a self-contained file system that will provide the contents for one
+directory in the container’s file system. Since the volume isn’t part of the container, the files it contains are
+not deleted when the container is destroyed
+
+Step 3: Creating the Container
+The third and final step is to tell Docker which volume should be used by the container
+```
+docker run --name vtest2 -v testdata:/data apress/vtest
+```
+The -v argument tells Docker that any data the container creates in the /data directory should be
+stored in the testdata volume.
