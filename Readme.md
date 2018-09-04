@@ -356,3 +356,9 @@ docker run -d --name mysql -v productdata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=
 | -e MYSQL_ROOT_PASSWORD         | This argument sets an environment variable. In this case, the MySQL container uses the MYSQL_ROOT_PASSWORD environment variable to set the password required to connect to the database. |
 | -e bind-address                | This argument sets an environment variable. This environment variable ensures that MySQL accepts requests on all network interfaces.                                                     |
 | -v productdata:/var/ lib/mysql | This argument tells Docker to use a volume called productdata to provide the contents of the container’s /var/lib/mysql directory                                                        |
+
+
+##### Examining the Docker Virtual Network
+```
+docker network inspect bridge
+```
