@@ -80,13 +80,13 @@ docker run -p 3000:80 --name exampleApp4000 apress/exampleapp
 
 ## Essential Arguments for the docker create and docker run Commands
 
-| Argument      | Description                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| -e, --env     | This argument sets an environment variable                                                                                  |
-| --name        | This argument assigns a name to the container.                                                                              |
-| --network     | This argument connects a container to a software-defined network.                                                           |
-| -p, --publish | This argument maps a host operating system port to one inside the container.                                                |
-| --rm          | This argument tells Docker to remove the container when it stops.                                                           |
+| Argument      | Description                                                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| -e, --env     | This argument sets an environment variable                                                                                 |
+| --name        | This argument assigns a name to the container.                                                                             |
+| --network     | This argument connects a container to a software-defined network.                                                          |
+| -p, --publish | This argument maps a host operating system port to one inside the container.                                               |
+| --rm          | This argument tells Docker to remove the container when it stops.                                                          |
 | -v, --volume  | This argument is used to configure a volume that will provide the contents for a directory in the container’s file system. |
 
 ##
@@ -139,16 +139,19 @@ deleted, allowing the result of user actions to be stored persistently.
 | docker volume ls     | This command lists the volumes that have been created. The -q argument returns a list of unique IDs, which can be used to delete multiple volumes using the docker volume rm command. |
 | docker volume rm     | This command removes one or more volumes.                                                                                                                                             |
 
-## 
+##
+
 Software-defined networks are used to connect containers together, using networks that are created and managed using Docker
 
 Software-defined networks are created using the docker network create command, like this:
+
 ```
 docker network create backend
 ```
 
 This command creates a software-defined network called backend. Containers can be connected to the
 network using the --network argument to the docker create or docker start command, like this:
+
 ```
 docker run -d --name mysql -v productdata:/var/lib/mysql --network=backend -e
 MYSQL_ROOT_PASSWORD=mysecret -e bind-address=0.0.0.0 mysql:8.0.0
@@ -156,9 +159,11 @@ MYSQL_ROOT_PASSWORD=mysecret -e bind-address=0.0.0.0 mysql:8.0.0
 
 Containers can also be connected to software-defined networks using the docker network connect
 command, like this:
+
 ```
 docker network connect frontend productapp1
 ```
+
 This command connects the container called productapp1 to the software-defined network called
 frontend.
 
@@ -172,35 +177,40 @@ frontend.
 | docker network rm      | This command removes a software-defined network. There are some built-in networks that Docker creates and that cannot be removed.                                                                                                                            |
 
 ## Docker Compose
+
 Docker Compose is used to describe complex applications that require multiple containers, volumes,
 and software-defined networks.
 
-| Keyword     | Description                                                                                                                                                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version     | This keyword specifies the version of the compose file schema. At the time of writing the latest version is version 3.                                                                                                          |
-| volume      | This keyword is used to list the volumes that are used by the containers defined in the compose file.                                                                                                                           |
-| networks    | This keyword is used to list the volumes that are used by the containers defined in the compose file. The same keyword is used to list the networks that individual containers will be connected to.                            |
-| services    | This keyword is used to denote the section of the compose file that describes containers.                                                                                                                                       |
-| image       | This keyword is used to specify the image that should be used to create a container.                                                                                                                                            |
-| build       | This keyword is used to denote the section that specifies how the image for a container will be created.                                                                                                                        |
-| context     | This keyword specifies the context directory that will be used when building the image for a container.                                                                                                                         |
-| dockerfile  | This keyword specifies the Docker file that will be used when building the image for a container.                                                                                                                               |
-| environment | This keyword is used to define an environment variable that will be applied to a container.                                                                                                                                     |
+| Keyword     | Description                                                                                                                                                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| version     | This keyword specifies the version of the compose file schema. At the time of writing the latest version is version 3.                                                                                                         |
+| volume      | This keyword is used to list the volumes that are used by the containers defined in the compose file.                                                                                                                          |
+| networks    | This keyword is used to list the volumes that are used by the containers defined in the compose file. The same keyword is used to list the networks that individual containers will be connected to.                           |
+| services    | This keyword is used to denote the section of the compose file that describes containers.                                                                                                                                      |
+| image       | This keyword is used to specify the image that should be used to create a container.                                                                                                                                           |
+| build       | This keyword is used to denote the section that specifies how the image for a container will be created.                                                                                                                       |
+| context     | This keyword specifies the context directory that will be used when building the image for a container.                                                                                                                        |
+| dockerfile  | This keyword specifies the Docker file that will be used when building the image for a container.                                                                                                                              |
+| environment | This keyword is used to define an environment variable that will be applied to a container.                                                                                                                                    |
 | depends_on  | This keyword is used to specify dependencies between services. Docker doesn’t have insight into when applications in containers are ready, so additional steps must be taken to control the startup sequence of an application |
 
-## 
+##
+
 Docker files are processed using the docker-compose build command like this:
+
 ```
 docker-compose -f docker-compose.yml build
 ```
 
 The containers, networks, and volumes in a compose file are created and starting using the
 docker-compose up command.
+
 ```
 docker-compose up
 ```
 
 ## Essential Commands for Docker Compose
+
 | Command              | Description                                                                                                                                                            |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | docker-compose build | This command processes the contents of the compose file and creates the images required for the services it contains.                                                  |
@@ -209,18 +219,22 @@ docker-compose up
 | docker-compose down  | This command stops the containers created from the services in the compose file and removes them, along with the networks and volumes.                                 |
 | docker-compose scale | This command changes the number of containers that are running for a service.                                                                                          |
 | docker-compose ps    | This command lists the containers that have been created for the services defined in the compose file.                                                                 |
+
 ## Docker Swarm Quick Reference
+
 A Docker swarm is a cluster of servers that run containers. There are worker nodes that run the containers
 and manager nodes that determine which containers run on individual nodes and ensure that the right
 number of containers are running for each service. Swarms automatically try to recover when containers or
 nodes fail.
 
 A swarm is created by running the following command on a manager node:
+
 ```
 docker swarm init
 ```
 
 ## Essential Commands for Docker Swarms
+
 | Command               | Description                                                                            |
 | --------------------- | -------------------------------------------------------------------------------------- |
 | docker swarm init     | This command runs on manager nodes to create a swarm.                                  |
@@ -328,3 +342,17 @@ container to port 80 in the new container
 ```
 docker run -p 6500:80 --rm --name exampleApp6500 apress/exampleapp
 ```
+
+#### Creating and Starting a MySQL Container
+
+```
+docker run -d --name mysql -v productdata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mysecret -e bind-address=0.0.0.0 mysql:8.0.0
+```
+
+| Plugin                         | README                                                                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -d                             | This argument tells Docker to run the container in the background without attaching to it to display the output.                                                                         |
+| --name                         | This argument is used to assign the name mysql to the container, which makes it easier to refer to in other Docker commands.                                                             |
+| -e MYSQL_ROOT_PASSWORD         | This argument sets an environment variable. In this case, the MySQL container uses the MYSQL_ROOT_PASSWORD environment variable to set the password required to connect to the database. |
+| -e bind-address                | This argument sets an environment variable. This environment variable ensures that MySQL accepts requests on all network interfaces.                                                     |
+| -v productdata:/var/ lib/mysql | This argument tells Docker to use a volume called productdata to provide the contents of the container’s /var/lib/mysql directory                                                        |
