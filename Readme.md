@@ -386,3 +386,13 @@ docker run -d --name mysql -v productdata:/var/lib/mysql --network=backend -e MY
 ```
 
 --network This argument is used to assign a container to a network. In this case, the container is assigned to the network called backend.
+
+#### Docker compose
+
+| Question                               | Answer                                                                                                                                                                                                                                    |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| What is it?                            | Docker Compose is a tool that is used to describe complex applications and manage the containers, networks, and volumes they require.                                                                                                     |
+| Why is it useful?                      | Docker Compose simplifies the process of setting up and running applications so that you don’t have to type in complex commands, which can lead to configuration errors.                                                                  |
+| How is it used?                        | The description of the application and its requirements is defined in a compose file, which is processed using the docker-compose command. The number of containers in an application is changed using the docker-compose scale command.  |
+| Are there any pitfalls or limitations? | Docker doesn’t provide any way to wait for the application in one container to be ready to receive requests from another container. As a consequence, you must manage the dependencies between the containers in an application directly. |
+| Are there any alternatives?            | You do not have to use Docker Compose. You can create and manage your containers manually or use an alternative such as Crowdr (https://github.com/polonskiy/crowdr)                                                                      |
