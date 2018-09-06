@@ -376,3 +376,13 @@ the name for the new network
 ```
 docker network create frontend
 ```
+
+#### Connecting Containers to Custom Networks
+
+Connect custom network to container using the --network flag
+
+```
+docker run -d --name mysql -v productdata:/var/lib/mysql --network=backend -e MYSQL_ROOT_PASSWORD=mysecret -e bind-address=0.0.0.0 mysql:8.0.0
+```
+
+--network This argument is used to assign a container to a network. In this case, the container is assigned to the network called backend.
